@@ -31,7 +31,7 @@
 
 		var court = ['knight', 'queen', 'prince', 'princess'];
 
-		function gotoRandomCardPage(){
+		function getRandomCard(){
 		    var xhr = new XMLHttpRequest();
 		    xhr.open('post', url);
 		    xhr.setRequestHeader("Content-Type","application/json");
@@ -40,7 +40,7 @@
 		            var result = JSON.parse(xhr.responseText).result;
 		            var cardStr = cardNamberToCoraxComString(result.random.data[0]);
 		            var pageUrl = pageBaseUrl + cardStr;
-		            console.log(cardStr);
+		            console.log(pageUrl);
 		        }
 		    };
 		    xhr.send(request);
