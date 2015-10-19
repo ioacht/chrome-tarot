@@ -3,12 +3,163 @@
 <head>
 	<meta charset="utf-8">
 	<title>Truly Random Tarot</title>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Fjalla+One|Roboto|Righteous">
 	<style type="text/css">
+	
+	body {
+		padding-top: 23px;
+		padding-left: 23px;
+		font-family: 'Roboto', Roboto, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+		font-size: 15px;
+	}
+
+	h1, h2, h3 {
+		font-family: 'Fjalla One', 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+		margin: 0px;
+		margin-bottom: 10px;
+	}
+
+	p { 
+		margin-top: 0px;
+		margin-bottom: 18px;
+	}
+
+	a {
+		color: #5C00B8;
+	}
+
+	#mainTitle {
+		font-family: 'Fjalla One', 'Segoe UI', Roboto, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+		position: relative;
+		background-image: url("io8.jpg");
+	    background-repeat: no-repeat;
+	    padding-left: 65px;
+	    height: 55px;
+	    vertical-align: bottom;
+	    font-size: 23px;
+	    margin-bottom: 23px;
+	}
+
+	#mainTitle>p {
+		position: absolute;
+	    bottom: 10px;
+	    padding: 0px;
+	    margin: 0px;
+	    font-size: 30px;
+	    font-weight: bold;
+	    margin-left: 8px;
+	}
+
+	#app {
+		width: 480px;
+	}
+
+	#button {
+		height: 25px;
+	}
+
+	#button>a {
+		cursor: pointer;
+		color: #7B45B1;
+		font-weight: bold;
+		font-size: 18px;
+		font-family: Fjalla One, monospace;
+	}
+
+	#loadingAnim {
+		display: none;
+	}
+
+	@media screen and (min-width: 1100px) {
+		#card {
+		    float: right;
+		}
+		#app {
+			float: left;
+		}
+		body {
+			width: 1100px;
+			margin: 0 auto;
+		}
+	}
+
+	@media screen and (max-width: 1099px) {
+		#card {
+		    margin-top: 100px;
+		}
+		body {
+			width: 550px;
+			margin: 0 auto;
+		}
+	}
+	
+	#card {
+		padding-top: 16px;		
+		padding-right: 23px;
+	}
+	
+	#attributions {
+		font-size: 14px;
+    	color: #606060;
+	}
+
+	#image {
+		width: 160px;
+		height: 268px;
+		margin-top: 0px;
+		margin-left: 23px;
+		float: left;
+		-webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+	}
+	
+	#text { 
+		width: 300px;
+		float: left;
+	}
+
+	#disclaimer {
+		font-size: 13px;
+	}
 
 	</style>
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript" src="jquery.js"></script>
 </head>
 <body>
-	</body>
+
+<div id="app">
+<div id="mainTitle"><p>Truly Random Tarot</p></div>
+<p id="button"><img id="loadingAnim" src="loading.gif" /><a onClick="drawRandomCard()">[click to draw a Random card]</a></p>
+<p>This is a little demo page I put together to demonstrate how well the tarot can work when true randomness is involved. True as opposed to shuffling the cards yourself, where it can be argued that the arrangement is far from random. Assuming that our subconscious have far grater powers than we observe using the conscious mind, we can than explain divination and other forms for tarot use simply in terms for getting the subconscious to communicate with the conscious by fooling it to pick some cards.</p>
+
+<p>On this page, the cards are picked in a process that we (humanity) currently consider to be truly random. The randomness is generated using <a target="_blank" href="https://www.random.org/">Random.org</a>, where it is produced from atmospheric noise.</p>
+
+<p>I didn't put this page here so we can test and see if this kind of tarot usage "works", I already know that it does. I have been reading tarot like this for several years now with great success (Using my <a href="https://github.com/ioacht/chrome-tarot">chrome browser extension</a>).</p>
+
+<p>What I want is for other people to gain some experience with it so we can discuss and theorize about the involved mechanisms.</p>
+
+<p>What dose the fact that it works just as well as hand shuffling mean? Can our subconscious influence or know about atmospheric noise? Is reality much more fluid than we suspect? Is it totally created by our mind without any respect to "external" influences? Or perhaps our intuition don't really care about the card drawn and we will get to the same reading and conclusion no matter the cards we draw?</p>
+<br/><br/>
+<p id="disclaimer">All tarot related content is retrieved from <a href="http://www.corax.com/tarot/">Raven's Tarot Site</a>.</p>
+
+
+</div>
+<div id="card">
+	<div id="text">		
+		<h2 id="title"></h2>
+		<h3 id="subTitle"></h3>
+		<p id="attributions"></p>
+		<p id="longText"></p>
+		<p id="shortText"></p>
+	</div>	
+	<div id="image"></div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		updateCardData("magician");
+	});
+</script>
+</body>
 </html>
