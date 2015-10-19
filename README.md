@@ -1,5 +1,5 @@
 # chrome-tarot
-*A simple tarot card drawing, chrome browser extension.*
+*A simple tarot card drawing chrome browser extension.*
 
 Just click the extension icon to draw one card and present the corresponding page on http://www.corax.com Thoth tarot website.
 
